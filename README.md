@@ -6,7 +6,8 @@ Feel free to play with code :)
 
 
 
-![1_launch](https://user-images.githubusercontent.com/28630022/126445819-bfe01919-f5d2-451c-b1cc-85db09422f5c.gif)
+https://user-images.githubusercontent.com/28630022/126448843-5b584182-a702-4881-8d27-7b8fd11c49df.mp4
+
 
 
 ## 2. Main feature of Ticket Management tool is to:
@@ -16,9 +17,6 @@ Feel free to play with code :)
  - Display recorded data in charts and graphs.
 
 ## 3.Create a new record:
-
-
-![2_create_data_V1](https://user-images.githubusercontent.com/28630022/126448666-6f77ca49-94a7-4c64-9b89-f606a68daa63.gif)
 
 
 

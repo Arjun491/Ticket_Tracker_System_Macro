@@ -18,11 +18,12 @@ https://user-images.githubusercontent.com/28630022/126448843-5b584182-a702-4881-
 
 ## 2. Main feature of Ticket Management tool is:
 
- - Perform CRUD- CREAT READ, UPDATE AND DELETE operation on database
- - Perform data validation
- - Display recorded data in charts and graphs.
+ - Perform CRUD- CREAT READ, UPDATE AND DELETE operation on database  📝
+ - Perform data validation 🎌
+ - - Show custom icons and calendar window 📅
+ - Display recorded data in charts and graphs. 📊
 
-## 3. Create a new record:
+## 3. Create a new record: 🗒️
 
 - Creating/Insert new record :octocat:
 
@@ -50,7 +51,7 @@ In Order to update data, double click (WE are updating Primary key/ ID number:6 
 
 https://user-images.githubusercontent.com/28630022/126450895-afaf0008-0852-46bf-9900-68560e6d2112.mp4
 
-## 5. Delete a row record :point_down:
+## 5. Delete a row record :point_down:  ❎
 
 
 
@@ -58,10 +59,18 @@ https://user-images.githubusercontent.com/28630022/126450895-afaf0008-0852-46bf-
 https://user-images.githubusercontent.com/28630022/126451693-8376bbcf-8646-48a6-985b-65e7156d2664.mp4
 
 
-## 6. Sort Data in Ascending and Descending order based on user input in search box:
+## 6. Sort  rows in Ascending and Descending order based on user input in search box: 👨‍🔬
 
 
-## 7. Search Data according to Columns name:
+https://user-images.githubusercontent.com/28630022/126453091-05734a91-f8fb-43fb-a46f-f256a6aa85c6.mp4
+
+
+
+## 7. Search Data according to Columns name using Refresh button:
+
+
+
+https://user-images.githubusercontent.com/28630022/126452815-4e6986b4-b20d-4c67-9ce5-922835628f6a.mp4
 
 
 
@@ -70,6 +79,20 @@ https://user-images.githubusercontent.com/28630022/126451693-8376bbcf-8646-48a6-
 
 
 
-## Upcoming feature: Data visualization through Graphs and Charts 📢
+
+https://user-images.githubusercontent.com/28630022/126454334-9c18cbb8-da0a-4985-ad9f-d2e63e8e116e.mp4
+
+
+
+
+## 9. Export a selected row to new Excel workbook sheet ⚔️
+
+
+
+https://user-images.githubusercontent.com/28630022/126453343-9d3bb2d2-2c5c-423c-908c-a7fcbdad9172.mp4
+
+
+
+## 10. Upcoming feature: Data visualization through Graphs and Charts 📢
 
 ![Capture](https://user-images.githubusercontent.com/28630022/126452302-289d8d59-97a5-41ba-b7e9-d2cdd37cf703.PNG)

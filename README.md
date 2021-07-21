@@ -24,6 +24,14 @@ https://user-images.githubusercontent.com/28630022/126448843-5b584182-a702-4881-
 
 ## 3.Create a new record:
 
+- Creating/Insert new record :octocat:
+
+:point_down:
+
+https://user-images.githubusercontent.com/28630022/126450177-fd53b6bd-aea8-4deb-9e78-6465ee792029.mp4
+
+
+
 
 
 

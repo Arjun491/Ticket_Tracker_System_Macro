@@ -40,7 +40,14 @@ https://user-images.githubusercontent.com/28630022/126450177-fd53b6bd-aea8-4deb-
 https://user-images.githubusercontent.com/28630022/126448529-97b9425b-3f7b-4600-96b8-8b8b9fa25d69.mp4
 
 
+## 4.Update existing record.
+
+In step-3, we left comment section empty, this time, comment textbox will be have a data (In short: update operation is performing :star: )
+
+In Order to update data, double click (WE are updating Primary key/ ID number:6 row comment field) is required on selected row and existing fields will populate with selected data with respect to fields:
 
 
+
+https://user-images.githubusercontent.com/28630022/126450895-afaf0008-0852-46bf-9900-68560e6d2112.mp4
 
 

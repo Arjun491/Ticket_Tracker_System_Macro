@@ -1,0 +1,409 @@
+'' Created by Arjun Singh : arjun9768@gmail.com ''
+
+
+Sub Refresh_DropDown_List()
+'''' sh is a variable which is taking all data from worksheet named List
+Dim sh As Worksheet
+Set sh = ThisWorkbook.Sheets("List")
+ 
+
+Dim i As Integer
+
+'''' Create list for Project Impact
+Me.projectImpactComboBox.Clear
+' adding a first item as blank
+Me.projectImpactComboBox.AddItem ""
+
+' we are starting i=2 because in List sheet 1st row is header and we need to skip
+' countA(sh.Range("A:A") means last row
+For i = 2 To Application.WorksheetFunction.CountA(sh.Range("A:A"))
+    Me.projectImpactComboBox.AddItem sh.Range("A" & i).Value
+Next i
+
+'''' Create list for Priority
+Me.priorityComboBox.Clear
+Me.priorityComboBox.AddItem ""
+For i = 2 To Application.WorksheetFunction.CountA(sh.Range("B:B"))
+    Me.priorityComboBox.AddItem sh.Range("B" & i).Value
+Next i
+
+'''' Create list for Issue Owner
+Me.issueOwnerComboBox.Clear
+Me.issueOwnerComboBox.AddItem ""
+For i = 2 To Application.WorksheetFunction.CountA(sh.Range("C:C"))
+    Me.issueOwnerComboBox.AddItem sh.Range("C" & i).Value
+Next i
+
+'''' Create list for Department
+'Me.deptartmentComboBox.Clear
+'Me.deptartmentComboBox.AddItem ""
+'For i = 2 To Application.WorksheetFunction.CountA(sh.Range("D:D"))
+  '  Me.cmb_Department.AddItem sh.Range("D" & i).Value
+    ' increment++
+'Next i
+
+
+'''' Create list for Department
+Me.deptartmentComboBox.Clear
+Me.deptartmentComboBox.AddItem ""
+For i = 2 To Application.WorksheetFunction.CountA(sh.Range("D:D"))
+Me.deptartmentComboBox.AddItem sh.Range("D" & i).Value
+   ' increment++
+Next i
+
+
+'''' Create list for Status
+Me.statusComboBox.Clear
+Me.statusComboBox.AddItem ""
+For i = 2 To Application.WorksheetFunction.CountA(sh.Range("E:E"))
+    Me.statusComboBox.AddItem sh.Range("E" & i).Value
+Next i
+
+'''''''''' Filter_by List
+'' add items by hard coded
+With Me.filterByComboBox
+    .Clear
+    .AddItem "ALL"
+    .AddItem "Id"
+    .AddItem "Description"
+    .AddItem "Project Impact"
+    .AddItem "Priority"
+    .AddItem "Issue Owner"
+    .AddItem "Department"
+    .AddItem "Status"
+    .AddItem "Comments"
+    .Value = "ALL" ' default value
+End With
+
+'''''''''' Sort by List
+With Me.sortByComboBox
+    .Clear
+    .AddItem "Id"
+    .AddItem "Description"
+    .AddItem "Project Impact"
+    .AddItem "Priority"
+    .AddItem "Open Date"
+    .AddItem "Closed Date"
+    .AddItem "Issue Owner"
+    .AddItem "Department"
+    .AddItem "Status"
+    .AddItem "Comments"
+    .AddItem "Update Time"
+    .Value = "Id"   ' default value
+End With
+
+
+End Sub
+
+
+
+
+Private Sub ascCommandButton_Click()
+Set dsh = ThisWorkbook.Sheets("Data_Display")
+
+Dim Col_Number As Integer
+Col_Number = Application.WorksheetFunction.Match(Me.sortByComboBox.Value, dsh.Range("1:1"), 0)
+
+dsh.UsedRange.Sort key1:=dsh.Cells(1, Col_Number), order1:=xlAscending, Header:=xlYes
+
+End Sub
+
+'' when user click on calendar close then show calendar to set close ticket date '
+
+
+
+Private Sub closeDateCalendarImage_Click()
+Call Calendar.SelectedDate(Me.closeDateTextBox) ''open a calendar window
+End Sub
+
+'' Delete operation ''
+
+Private Sub deleteCommandButton_Click()
+
+If Me.refreshListBox.ListIndex < 0 Then
+    MsgBox "Please select the record(s) to delete.", vbCritical
+    Exit Sub
+End If
+
+If Me.refreshListBox.list(Me.refreshListBox.ListIndex, 0) = "" Then
+
+   MsgBox "Select record does not exist so cant be deleted!.", vbCritical
+    Exit Sub
+End If
+
+Dim sh As Worksheet
+Set sh = ThisWorkbook.Sheets("Data")
+
+Dim i As Long
+Dim id As Long
+Dim row_number As Long
+For i = 0 To Me.refreshListBox.ListCount - 1
+    If Me.refreshListBox.Selected(i) Then
+        id = Me.refreshListBox.list(i, 0)
+        row_number = Application.WorksheetFunction.Match(id, sh.Range("A:A"), 0)
+        sh.Range("A" & row_number).EntireRow.Delete
+    End If
+Next i
+
+Call Refresh_Listbox
+MsgBox "Deleted sucessfully", vbInformation
+
+
+End Sub
+
+
+Private Sub dsecCommandButton_Click()
+Dim dsh As Worksheet
+Set dsh = ThisWorkbook.Sheets("Data_Display")
+
+Dim Col_Number As Integer
+Col_Number = Application.WorksheetFunction.Match(Me.sortByComboBox.Value, dsh.Range("1:1"), 0)
+
+dsh.UsedRange.Sort key1:=dsh.Cells(1, Col_Number), order1:=xlDescending, Header:=xlYes
+
+End Sub
+
+Private Sub exitCommandButton_Click()
+
+MsgBox "Press OK to exist", vbCritical
+Unload Me
+End Sub
+
+
+Private Sub exportToExcelCommandButton_Click()
+Dim sh As Worksheet
+Dim nwb As Workbook
+Dim nsh As Worksheet
+
+Set sh = ThisWorkbook.Sheets("Data_Display")
+
+Set nwb = Workbooks.Add
+Set nsh = nwb.Sheets(1)
+sh.Cells.Copy nsh.Range("A1")
+
+MsgBox "Done"
+End Sub
+
+Private Sub manageListCommandButton_Click()
+
+ThisWorkbook.Sheets("List").Visible = xlSheetVisible
+ThisWorkbook.Sheets("List").Activate
+ThisWorkbook.Sheets("Launch Ticket Tracker").Visible = xlSheetHidden
+Unload Me
+End Sub
+
+'' when user click on calendar open show calendar to set open ticket date '
+
+
+Private Sub openDateCalendarImage_Click()
+''open a calendar window
+Call Calendar.SelectedDate(Me.openDateTextBox)
+
+
+End Sub
+
+Private Sub projectImpactComboBox_Change()
+
+End Sub
+
+Private Sub refreshCommandButton_Click()
+Call Refresh_Listbox
+End Sub
+
+Private Sub refreshListBox_Click()
+
+End Sub
+
+  Private Sub refreshListBox_DblClick(ByVal Cancel As MSForms.ReturnBoolean)
+ Me.idLabel.Visible = True
+Me.idTextBox.Visible = True
+Me.idTextBox.Enabled = False '' stop user to chanage id as ID is primary key for entire data table ''
+  Me.idTextBox.Value = Me.refreshListBox.list(Me.refreshListBox.ListIndex, 0)
+    Me.descTextBox.Value = Me.refreshListBox.list(Me.refreshListBox.ListIndex, 1)
+    Me.projectImpactComboBox.Value = Me.refreshListBox.list(Me.refreshListBox.ListIndex, 2)
+    Me.priorityComboBox.Value = Me.refreshListBox.list(Me.refreshListBox.ListIndex, 3)
+    
+    
+Me.openDateTextBox.Value = Format(Me.refreshListBox.list(Me.refreshListBox.ListIndex, 4), "D-MMM-YYYY")
+    
+    If Me.refreshListBox.list(Me.refreshListBox.ListIndex, 5) <> "" Then
+        Me.closeDateTextBox.Value = Format(Me.refreshListBox.list(Me.refreshListBox.ListIndex, 5), "D-MMM-YYYY")
+    End If
+    
+    Me.issueOwnerComboBox.Value = Me.refreshListBox.list(Me.refreshListBox.ListIndex, 6)
+    Me.deptartmentComboBox.Value = Me.refreshListBox.list(Me.refreshListBox.ListIndex, 7)
+    Me.statusComboBox.Value = Me.refreshListBox.list(Me.refreshListBox.ListIndex, 8)
+    Me.commentsTextBox.Value = Me.refreshListBox.list(Me.refreshListBox.ListIndex, 9)
+
+
+  End Sub
+  
+
+
+Private Sub resetButton_Click()
+
+'' reset to empty values ''
+
+Me.idTextBox.Value = ""
+Me.descTextBox.Value = ""
+Me.projectImpactComboBox.Value = ""
+Me.priorityComboBox.Value = ""
+Me.openDateTextBox.Value = ""
+Me.closeDateTextBox.Value = ""
+Me.issueOwnerComboBox.Value = ""
+Me.deptartmentComboBox.Value = ""
+Me.statusComboBox.Value = ""
+Me.commentsTextBox.Value = ""
+
+
+End Sub
+
+
+Private Sub statusComboBox_Change()
+If Me.statusComboBox.Value = "Closed" Then
+ '' show close date field calendar when users select closed option in combo box ''
+ Me.closeDateCalendarImage.Visible = True
+ Me.closeDateTextBox.Visible = True
+ Me.closeDateLabel.Visible = True
+ 
+ Else
+ 
+  Me.closeDateCalendarImage.Visible = False
+ Me.closeDateTextBox.Visible = False
+ Me.closeDateLabel.Visible = False
+
+End If
+
+End Sub
+
+'' Submit button to record new tickets ''
+Private Sub submitCommandButton_Click()
+'''''''''''''''' Input Data Validations '''''''''''''''''
+
+If Me.descTextBox.Value = "" Or Me.projectImpactComboBox.Value = "" Or Me.priorityComboBox.Value = "" _
+Or Me.openDateTextBox.Value = "" Or Me.issueOwnerComboBox.Value = "" Or Me.statusComboBox.Value = "" Then
+MsgBox "Please enter the complete details! Input Fields cannot leave empty.", vbCritical
+descTextBox.SetFocus
+Exit Sub
+End If
+
+
+'' check if close option was selected if yes then closed date field cant be leave empty
+
+If Me.statusComboBox.Value = "Closed" Then
+    If Me.closeDateTextBox.Value = "" Then
+        MsgBox "Please enter the close date", vbCritical
+        Exit Sub
+    End If
+    
+    If CDate(Me.closeDateTextBox.Value) < CDate(Me.openDateTextBox.Value) Then
+        MsgBox "Close date can not be before open date, Please verify close date inputs", vbCritical
+        Exit Sub
+    End If
+
+End If
+
+
+Dim sh As Worksheet
+Set sh = ThisWorkbook.Sheets("Data")
+
+Dim row_number As Long
+Dim max_id As Long
+max_id = Application.WorksheetFunction.Max(sh.Range("A:A")) '' fetch all avaialble id in data sheet from column ''
+ 
+If Me.idTextBox.Value = "" Then  ''' Insert
+'' in case we find the id field is empty means _
+we are entering/inserting a new data then last index + 1 will be the new id
+''
+    row_number = Application.WorksheetFunction.CountA(sh.Range("A:A")) + 1
+    '' add new id whenever we are intserting new data ''
+    sh.Range("A" & row_number).Value = max_id + 1
+Else                          '''' Update
+    row_number = Application.WorksheetFunction.Match(Int(Me.idTextBox.Value), sh.Range("A:A"), 0)
+End If
+
+
+'' taking user inputs and storing in respected rows and columns ''
+
+sh.Range("B" & row_number).Value = Me.descTextBox.Value
+sh.Range("C" & row_number).Value = Me.projectImpactComboBox.Value
+sh.Range("D" & row_number).Value = Me.priorityComboBox.Value
+sh.Range("E" & row_number).Value = Me.openDateTextBox.Value
+sh.Range("F" & row_number).Value = Me.closeDateTextBox.Value
+sh.Range("G" & row_number).Value = Me.issueOwnerComboBox.Value
+sh.Range("H" & row_number).Value = Me.deptartmentComboBox.Value
+sh.Range("I" & row_number).Value = Me.statusComboBox.Value
+sh.Range("J" & row_number).Value = Me.commentsTextBox.Value
+sh.Range("K" & row_number).Value = Now '' now means fetch the current data and time
+
+
+'' once data input/inserset then reset all input fields ''
+Call resetButton_Click
+
+MsgBox "Done", vbInformation
+
+''then show the live and new inserted/updated data in ListBox ''
+Call Refresh_Listbox
+
+End Sub
+
+''''' Main Method '''
+Private Sub UserForm_Activate()
+' set a validation of any drop down list is empty then call Refresh drop down list
+If Me.projectImpactComboBox.ListCount = 0 Then Call Refresh_DropDown_List
+
+'' set some default values ''
+
+Me.statusComboBox.Value = "Open"
+Call Refresh_Listbox
+
+End Sub
+
+Private Sub UserForm_Click()
+
+End Sub
+
+'''''' show data in list box
+
+Sub Refresh_Listbox()
+
+Dim sh As Worksheet
+Set sh = ThisWorkbook.Sheets("Data")
+Dim dsh As Worksheet
+Set dsh = ThisWorkbook.Sheets("Data_Display")
+''' copy all the data from  DATA to DATA_DISPLAY worksheet '''
+
+'' remove any filder in data_display sheet ''
+dsh.Cells.Clear
+sh.AutoFilterMode = False
+
+'' if filterby Combox Box is not equal to 'All'
+'' then show the input value in search texbox to search data starting with user input value or character
+'' for example user type 'p' in searchtexbox then result column will show data starting with first character as a 'p'
+'' Match() function to match again user input
+If Me.filterByComboBox.Value <> "ALL" Then
+    sh.UsedRange.AutoFilter Application.WorksheetFunction.Match(Me.filterByComboBox.Value, sh.Range("1:1"), 0), "*" & Me.searchTextBox.Value & "*"
+End If
+
+'' copy the data from 'Data' to 'Data_Display' sheet
+sh.UsedRange.Copy dsh.Range("A1")
+
+sh.AutoFilterMode = False
+
+
+Dim lr As Long
+lr = Application.WorksheetFunction.CountA(dsh.Range("A:A"))
+'' in case header is avaialble then avoid it and move to second row
+'' validation in case no data avaialble and only headser is avaialble
+If lr = 1 Then lr = 2
+
+With Me.refreshListBox
+    .ColumnHeads = True
+    .ColumnCount = 11 '' total 11 columns for list
+    .ColumnWidths = "20,160"
+    .RowSource = "Data_Display!A2:K" & lr
+End With
+
+
+End Sub
+

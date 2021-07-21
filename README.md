@@ -16,7 +16,11 @@ Feel free to play with code :)
  - Display recorded data in charts and graphs.
 
 ## 3.Create a new record:
-- 
+
+
+![2_create_data_V1](https://user-images.githubusercontent.com/28630022/126448666-6f77ca49-94a7-4c64-9b89-f606a68daa63.gif)
+
+
 
 
 - I purposly left the 'Comments field' empty because in step-4, we will update the comment textbox

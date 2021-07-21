@@ -22,7 +22,7 @@ https://user-images.githubusercontent.com/28630022/126448843-5b584182-a702-4881-
  - Perform data validation
  - Display recorded data in charts and graphs.
 
-## 3.Create a new record:
+## 3. Create a new record:
 
 - Creating/Insert new record :octocat:
 
@@ -40,7 +40,7 @@ https://user-images.githubusercontent.com/28630022/126450177-fd53b6bd-aea8-4deb-
 https://user-images.githubusercontent.com/28630022/126448529-97b9425b-3f7b-4600-96b8-8b8b9fa25d69.mp4
 
 
-## 4.Update existing record.
+## 4. Update existing record.
 
 In step-3, we left comment section empty, this time, comment textbox will be have a data (In short: update operation is performing :star: )
 
@@ -50,7 +50,7 @@ In Order to update data, double click (WE are updating Primary key/ ID number:6 
 
 https://user-images.githubusercontent.com/28630022/126450895-afaf0008-0852-46bf-9900-68560e6d2112.mp4
 
-## Delete a row record :point_down:
+## 5. Delete a row record :point_down:
 
 
 
@@ -58,3 +58,18 @@ https://user-images.githubusercontent.com/28630022/126450895-afaf0008-0852-46bf-
 https://user-images.githubusercontent.com/28630022/126451693-8376bbcf-8646-48a6-985b-65e7156d2664.mp4
 
 
+## 6. Sort Data in Ascending and Descending order based on user input in search box:
+
+
+## 7. Search Data according to Columns name:
+
+
+
+
+## 8. Reset Button to reset all input textbox and combo box fields:
+
+
+
+## Upcoming feature: Data visualization through Graphs and Charts 📢
+
+![Capture](https://user-images.githubusercontent.com/28630022/126452302-289d8d59-97a5-41ba-b7e9-d2cdd37cf703.PNG)

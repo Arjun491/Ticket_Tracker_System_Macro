@@ -12,6 +12,12 @@ Feel free to play with code :)
 ## 2. Main feature of Ticket Management tool is to:
 
  - Perform CRUD- CREAT READ, UPDATE AND DELETE operation on database
+ - Perform data validation
+ - Display recorded data in charts and graphs.
+
+## 3.Create a new record:
+-
+https://user-images.githubusercontent.com/28630022/126447472-6b2b78a6-889b-4827-b9fe-380849af3b47.mp4
 
 
 

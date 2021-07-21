@@ -11,7 +11,7 @@ Feel free to play with code :)
 
 ## 2. Main feature of Ticket Management tool is to:
 
-###### - Perform CRUD- CREAT READ, UPDATE AND DELETE operation on database
+ - Perform CRUD- CREAT READ, UPDATE AND DELETE operation on database
 
 
 

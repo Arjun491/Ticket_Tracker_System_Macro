@@ -50,4 +50,11 @@ In Order to update data, double click (WE are updating Primary key/ ID number:6 
 
 https://user-images.githubusercontent.com/28630022/126450895-afaf0008-0852-46bf-9900-68560e6d2112.mp4
 
+## Delete a row record :point_down:
+
+
+
+
+https://user-images.githubusercontent.com/28630022/126451693-8376bbcf-8646-48a6-985b-65e7156d2664.mp4
+
 

@@ -20,7 +20,8 @@ Feel free to play with code :)
 
 
 - I purposly left the 'Comments field' empty because in step-4, we will update the comment textbox
-https://user-images.githubusercontent.com/28630022/126447472-6b2b78a6-889b-4827-b9fe-380849af3b47.mp4
+
+
 
 
 

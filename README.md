@@ -16,7 +16,7 @@ https://user-images.githubusercontent.com/28630022/126448843-5b584182-a702-4881-
 
 
 
-## 2. Main feature of Ticket Management tool is to:
+## 2. Main feature of Ticket Management tool is:
 
  - Perform CRUD- CREAT READ, UPDATE AND DELETE operation on database
  - Perform data validation
